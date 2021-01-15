@@ -1,0 +1,53 @@
+nav
+{
+  position: fixed;
+  top: 5%; left: 50%;
+  transform: translate(-50%, -50%);
+  background-color:#2b95ff;
+  z-index:3;
+}
+
+#titre
+{
+	position: fixed;
+	top: 5%; left: 8%;
+	transform: translate(-50%, -50%);
+	color:#48751A;
+}
+
+#titre2
+{
+	position:fixed;
+	top:10%; left:38%;
+	z-index:3;
+}
+
+
+body
+{
+	position:center;
+	left:25%;
+	right:15%;
+	top:30%;
+	bottom:15%;
+	background-color:#0FFFF8;
+	z-index: 1;
+}
+
+section
+{
+	position: absolute;
+	padding-top: 10px;
+	left:20%;
+	right: 15%;
+	top: 20%;
+	color:#48751A;
+	background-color: #FFFFFF;
+}
+
+#footer
+{
+	padding-top: 800px;
+	text-align: center;
+	z-index: 4;
+}
