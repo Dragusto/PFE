@@ -60,6 +60,7 @@ $nb_relation = count($row1);
 		<p><a href="CV/<?php echo $id.".pdf";?>">Curriculum vitae</a></p>
 		<?php } ?>
 		<p><a href="reseau.php">Relation(<?php echo $nb_relation ?>)</a></p>
+		<p><a href="questionnaire1.php">Questionnaire</a></p>
 		<p><a href="photo.php">Photos</a></p>
 	</div>
 	
@@ -143,10 +144,6 @@ $nb_relation = count($row1);
 	
 	<div id="footer">
 
-			<p>Droit d'auteur © 2020 Intemento</p> 
-			<p> | 
-				<a href="mailto:Intemento@gmail.com">Intemento@gmail.com</a> 
-			</p>
 
 	</div>
 </html>

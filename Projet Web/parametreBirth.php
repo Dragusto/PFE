@@ -91,8 +91,8 @@ $mdp = isset($_POST["mdp"])? $_POST["mdp"]:"";
 		}
 	}
 
-
 ?>
+
 	<meta http-equiv="refresh" content="1;parametre.php"/>
 	<?php
 						    function bon($url, $permanent = false)

@@ -4,7 +4,7 @@
 
     <head>
 
-        <title>Projet piscine !!</title>
+        <title>Intemento</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 		<link href="css/indexcss.css" rel="stylesheet" type="text/css" />
 		<h1>Intemento</h1>
@@ -71,13 +71,7 @@
 	
     <div id="footer">
 
-        <p>Droit d'auteur Giot Chabennet © 2018 Intemento</p> 
 
-        <p> Dernière mise à jour le 2/05/2018 |
-
-        <a href="mailto:Intemento@gmail.com">Intemento@gmail.com</a> 
-        
-        </p>
 
     </div>
 			

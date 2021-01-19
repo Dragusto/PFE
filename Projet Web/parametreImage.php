@@ -55,9 +55,9 @@ if(!empty($_POST))
             // On renomme le fichier
             $photo = $id.'.'.'jpg';
 			// Si une photo existe deja pour le profil
-			if(is_file(TARGET.$photo.'jpg'))
+			if(is_file(TARGET.$photo.'.jpg'))
 			{
-				unlink(TARGET.$photo.'jpg');
+				unlink(TARGET.$photo.'.jpg');
 			}
 				// Si c'est OK, on teste l'upload
 				if(move_uploaded_file($_FILES['fichier']['tmp_name'], TARGET.$photo))
