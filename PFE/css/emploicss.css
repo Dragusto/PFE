@@ -1,0 +1,67 @@
+nav
+{
+  position: fixed;
+  top: 5%; left: 50%;
+  transform: translate(-50%, -50%);
+  background-color:#2b95ff;
+  z-index:3;
+}
+
+header
+{
+	position: fixed;
+	top: 0%;
+	left:0%;
+	right: 0%;
+	bottom: 69.5%;
+	z-index: 2;
+	background-color: #0FFFF8;
+}
+
+#titre
+{
+	position: fixed;
+	top: 5%; left: 8%;
+	transform: translate(-50%, -50%);
+	color:#48751A;
+}
+
+.publi
+{
+	position: fixed;
+	top: 12%;
+	right: 15%;
+	left: 20%;
+	bottom: 60%;
+	background-color: #666666;
+	z-index: 3;
+}
+
+#maListe
+{
+	position: absolute;
+	padding-top: 10px;
+	left:20%;
+	right: 15%;
+	top: 45%;
+	color:#48751A;
+	background-color: #FFFFFF;
+}
+
+body
+{
+	position:center;
+	left:25%;
+	right:15%;
+	top:30%;
+	bottom:15%;
+	background-color:#0FFFF8;
+	z-index: 1;
+}
+
+#footer
+{
+	padding-top: 800px;
+	text-align: center;
+	z-index: 4;
+}

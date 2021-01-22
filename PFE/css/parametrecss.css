@@ -1,0 +1,36 @@
+head{
+	font-size: 40px;
+	color:blue;
+	text-align: center;
+}
+
+nav
+{
+   position: fixed;/* postulat de départ */
+  top: 5%; left: 50%;  /* à 50%/50% du parent référent */
+  background-color:#2b95ff;
+  text-align: center;
+}
+
+body
+{		
+	margin-left: auto;
+	margin-right: auto;
+	height: 30%;
+	width: 50%;
+	background-color: aqua;
+	text-align: center;
+	padding-top: 100px;
+}
+
+#table
+{
+	text-align: center;
+}
+
+
+#footer
+{
+	padding-bottom: 5px;
+	text-align: center;
+}
