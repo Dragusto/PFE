@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 session_start();
 ?>
 
@@ -39,9 +39,7 @@ session_start();
 	$tab = mysqli_query($db_handle, $sql);
 	$row= mysqli_fetch_array($tab);
 	$MDP = $row['mdp'];
-
 	
-
 	// Comparaison du mdp envoyé via le formulaire avec la base
 	$isPasswordCorrect = password_verify($mdp, $MDP);
 	if (!$MDP)
@@ -54,7 +52,7 @@ session_start();
 		if ($isPasswordCorrect) {
 
 			//echo "vous etes connectes"
-			$sql = "SELECT id, entreprise FROM utilisateur WHERE email = '$email'";
+			$sql = "SELECT * FROM utilisateur WHERE email = '$email'";
 			$tab = mysqli_query($db_handle, $sql);
 			$row= mysqli_fetch_array($tab);
 			$id = $row['id'];
@@ -62,9 +60,9 @@ session_start();
 			$_SESSION['id'] = $id;
 			?>	
 			<?php 
-			if($entreprise==1) {
+			if($entreprise!=1) {
 
-			Redirect('index.php?error_message1='.'<br>merci de vous connecter sur l espace entreprise', false);
+			Redirect('indexpro.php?error_message1='.'<br>merci de vous connecter sur l espace perso', false);
 
 			}?>
 				<meta http-equiv="refresh" content="1;sommaire.php"/>
@@ -75,7 +73,7 @@ session_start();
 
 			//echo 'votre mdp est '.$mdp;
 
-			Redirect('index.php?error_message='.'<br>Erreur email ou mot de passe', false);
+			Redirect('indexpro.php?error_message='.'<br>Erreur email ou mot de passe', false);
 
 		}
 	}

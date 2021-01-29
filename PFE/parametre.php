@@ -22,11 +22,11 @@ $birth = $row['date_de_naissance'];
 	<nav>
 		<ul>
 			<a href="sommaire.php">Acceuil </a>
-			<a href="reseau.php">Reseau </a>
-			<a href="emploi.php">Emploi </a>
-			<a href="messagerie.php">Messagerie </a>
+			<!-- <a href="reseau.php">Reseau </a>
+			 --><a href="emploi.php">Emploi </a>
+			<!-- <a href="messagerie.php">Messagerie </a>
 			<a href="notification.php">Notification </a>
-			<a href="vous.php">Profil </a>
+			 --><a href="vous.php">Profil </a>
 		</ul>
 	</nav>
   <body>

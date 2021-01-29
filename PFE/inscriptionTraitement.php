@@ -66,7 +66,9 @@
 		
 			if(mysqli_query($db_handle, "INSERT INTO membre(id, email, nom, prenom) VALUES('$id','$email','$nom','$prenom')"))
 			{
-				echo "Membre créé";			
+				echo "Membre créé";	?>
+				<meta http-equiv="refresh" content="1;index.php"/>		
+				<?php
 			}
 
 			else
@@ -74,7 +76,6 @@
 				Redirect('inscription.php?error_message='.'<br>Erreur création du compte', false);
 			}
 		}
-
 		else
 		{
 			echo "Database not found <br>";

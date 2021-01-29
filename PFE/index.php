@@ -9,7 +9,7 @@
 		<link href="css/indexcss.css" rel="stylesheet" type="text/css" />
 		<h1>Intemento</h1>
 
-        <h2>Connection</h2>
+        <h2>Connection Utilisateur</h2>
 
     </head>
 
@@ -20,16 +20,25 @@
 
         <!-- Ceci permet d'afficher les champs non remplis sans changer de page -->
         <?php
-            if(isset($_GET["error_message"]))
-            {
-              $error_message = $_GET["error_message"];
-        ?>
-        
-        <p style = "color : red"> <?php echo $error_message; ?></p>
-          
-        <?php } ?>
+		if(isset($_GET["error_message"]))
+			{
+			  $error_message = $_GET["error_message"];
+		?>
+		
+		<p style = "color : red"> <?php echo $error_message; ?></p>
+		  
+		<?php } ?>
 
 
+		<?php
+          if(isset($_GET["error_message1"]))
+			{
+			  $error_message1 = $_GET["error_message1"];
+		?>
+		
+		<p style = "color : red"> <?php echo $error_message1; ?></p>
+		  
+		<?php } ?>
 
         <form action="indextraitement.php" method="post">
 
@@ -67,6 +76,18 @@
 		
         </form>
 	
+    </div>
+
+     <div class="index">
+        
+        <form action="indexpro.php">
+        
+        <tr>
+              <td colspan="10"><input type="submit" value="Version Entreprise"></td>
+        </tr>
+        
+    </form>
+    
     </div>
 	
     <div id="footer">

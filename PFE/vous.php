@@ -20,6 +20,11 @@ $birth = $row['date_de_naissance'];
 $city = $row['ville'];
 $adresse = $row['adresse'];
 
+$sql10 = "SELECT * FROM utilisateur WHERE id = '$id'";
+$tab1 = mysqli_query($db_handle, $sql10);
+$row1= mysqli_fetch_array($tab1);
+$entreprise = $row1['entreprise'];
+
 // $sql = "SELECT id_1 FROM relation WHERE id_1 = '$id' or id_2 = '$id' GROUP BY id_1 ";
 // $tab1 = mysqli_query($db_handle, $sql);
 // $row1 = mysqli_fetch_array($tab1);
@@ -36,24 +41,25 @@ $adresse = $row['adresse'];
 </head>
 		<!-- Here is the menu area -->
 <header>
-	<div class="titre">
-        <p><img src= "image/intemento" width="500" height="150" alt="A 877x285 image"></p>    
-    </div>
+		<div class="titre">
+	        <p><img class="testimg2"src= "image/intemento" ></p>    
+	    </div>
 	<nav>
 		<ul>
 			<a href="sommaire.php">Acceuil </a>
-			<a href="reseau.php">Reseau </a>
+			<!-- <a href="reseau.php">Reseau </a> -->
 			<a href="emploi.php">Emploi </a>
-			<a href="messagerie.php">Messagerie </a>
-			<a href="notification.php">Notification </a>
+			<!-- <a href="messagerie.php">Messagerie </a> -->
+			<!-- <a href="notification.php">Notification </a> -->
 			<a href="vous.php">Profil </a>
 		</ul>
 	</nav>
 		
 </header>
+
 <div class="pr">
 	<p><a href="parametre.php">Paramètre</a></p>
-	<?php 
+	<?php  if ($entreprise==1){}else{
 	$chemin = 'CV/'.$id.'.pdf';
 	if (is_file($chemin))
 	{?>
@@ -61,27 +67,30 @@ $adresse = $row['adresse'];
 	<?php } ?>
 	<!-- <p><a href="reseau.php">Relation(<?php echo $nb_relation ?>)</a></p> -->
 	<p><a href="questionnaire1.php">Questionnaire</a></p>
+	<?php }?>
 	<p><a href="photo.php">Photos</a></p>
 </div>
-	
+
 <div class="right">
 
 			
 	<p> Nom : <?php echo $nom; ?> </p>
-	<p> Prénom : <?php echo $prenom; ?> </p>
+	<p><?php if ($entreprise==1){}else{echo 'Prénom : '.$prenom;}?></p>
 	<?php if(!$adresse){}else{echo 'Adresse : '.$adresse; } ?><p> </p>
 	<?php if(!$job){}else{ echo 'Statut : '.$job;} ?><p> </p>
 	<?php if(!$birth){}else{ echo 'Date de naissance : '.$birth;} ?><p> </p>
 	<?php
+	if ($entreprise==1){}else{
 	$chemin1 = "test/$id.png";
 	if (is_file($chemin1))
 	{?>
 	<p><img src = test/<?php echo $id;?> width="200" height="200" alt="A 200x200 image"></p>
+	<a href="resultat.php">Résultat </a>
 	<?php } 
 	else
 	{?>
 	<p> Pas encore effectuer de test </p>
-	<?php } ?>
+	<?php }} ?>
 </div>
 <?php
 		$chemin2 = "profil/$id.jpg";
@@ -93,64 +102,39 @@ $adresse = $row['adresse'];
 		{?>
 			<p><img class="testimg"src= "profil/0"></p>
 		<?php } ?>
-<body>
-	<!-- 
-	<section>
-	<div id="titre2">
-		<h2>Fil d'actualités du profil</h2>
+
+<div class="publi">
+			<form enctype="multipart/form-data" action="vousTraitement.php" method="post">
+
+				<table id="publication">
+
+					<tr>
+						<td>Information  : </td>
+						<td><input type="text" name="info" required size="100" colspan="4"/></td>
+				
+					<tr>
+						<td colspan="2"><input type="Submit" value="Publier"/></td>
+					</tr>
+
+				</table>
+
+			</form>
+</div>
+<div id="publication">	
 		<?php
-			$sql = "SELECT * FROM evenement WHERE auteur = '$id'";
+			$sql = "SELECT * FROM membre WHERE id = '$id'";
 			$result = mysqli_query($db_handle, $sql);
 				while($data = mysqli_fetch_assoc($result))		
 			{		
 				?>
 				<form enctype="multipart/form-data">
 				<?php
-				echo "Titre de l'evenement:".$data['titre'].'<br>';
-				echo "Date de l'evenement :".$data['date_evenement'].'<br>';
-				echo "Date publiée        :".$data['temps'].'<br>';
-				echo "Nombre de like      :".$data['nb_like'].'<br>';
-				?>
-					</form>	
-
-					<form action="sommaireliker.php" method="post">
-						<tr>
-							<td> <input type="submit" value="liker"\> </td>
-							<?php $_SESSION['id_evenement'] = $data['id_evenement']; ?>
-						</tr>
-					</form>
-					<?php
-					echo "<br>";
-					?>
-					<?php
-				}
-				while($data = mysqli_fetch_assoc($result))		
-				{		
-					?>
-					<form enctype="multipart/form-data">
-					<?php
-					echo "Titre de l'evenement:".$data['titre'].'<br>';
-					echo "Date de l'evenement :".$data['date_evenement'].'<br>';
-					echo "Date publiée        :".$data['temps'].'<br>';
-					echo "Nombre de like      :".$data['nb_like'].'<br>';
-					?>
-					</form>	
-					<form action="sommaireliker.php" method="post">
-						<tr>
-							<td> <input type="submit" value="liker"\> </td>
-							<?php $_SESSION['id_evenement'] = $data['id_evenement']; ?>
-						</tr>
-					</form>
-					<?php
-					echo "<br>";
-					?>				
-					<?php
+				echo $data['info'].'<br>';
 				}
 			?>
-		</div>
-	</section> -->
+</div>
+
 	
-	</body>
 	<div id="footer">
 
 

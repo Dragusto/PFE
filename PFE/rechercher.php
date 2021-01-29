@@ -19,21 +19,20 @@ session_start();
 		$array_id_search = $_SESSION['search'];
 ?>
     <head>
-        <title>Intemento</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 		<link href="css/recherchercss.css" rel="stylesheet" type="text/css" />
     </head>
 	<header>
 		<div class="titre">
-	        <p><img class="testimg"src= "image/intemento" width="500" height="150" alt="A 877x285 image"></p>    
+	        <p><img class="testimg"src= "image/intemento" ></p>    
 	    </div>
 		<nav>
 			<ul>
 				<a href="sommaire.php">Accueil </a>
-				<a href="reseau.php">Reseau </a>
+				<!-- <a href="reseau.php">Reseau </a> -->
 				<a href="emploi.php">Emploi </a>
-				<a href="messagerie.php">Messagerie </a>
-				<a href="notification.php">Notification </a>
+				<!-- <a href="messagerie.php">Messagerie </a>
+				<a href="notification.php">Notification </a> -->
 				<a href="vous.php">Profil </a>
 			</ul>
 		</nav>
@@ -78,35 +77,40 @@ session_start();
 	<?php
 		foreach($array_id_search as $id_search)
 		{?>
-		<form enctype="multipart/form-data" action="rechprofil.php" method="post">
-			<fieldset>
-				<p>
-					<table>
-						<?php
-							$sql_search = "SELECT * FROM membre WHERE id = '$id_search'";
-							$tab_search = mysqli_query($db_handle, $sql_search);
-							$row_search = mysqli_fetch_array($tab_search);
-							$nom_search = $row_search['nom'];
-							$prenom_search = $row_search['prenom'];
-							$chemin1_search = "profil/$id_search.jpg";
-							if (is_file($chemin1_search))
-							{?>
-								
-								<a href = "rechprofil.php"> <img src = profil/<?php echo $id_search;?> > </a>
-								<?php $_SESSION['id_search'] = $id_search;?>
-								
-							<?php } 
-							else
-							{?>							
-								<a href = "rechprofil.php"> <img src = "profil/0"></a>
-								<?php $_SESSION['id_search'] = $id_search;?>
-							<?php } ?>
-							<p> Nom : <?php echo $nom_search; ?> </p>
-							<p> Prénom : <?php echo $prenom_search; ?> </p>
-					</table>
-				</p>
-			</fieldset>
-		</form>
+			<form enctype="multipart/form-data" action="rechprofil.php" method="post">
+				<fieldset>
+					<p>
+						<table>
+							<?php
+								$sql_search = "SELECT * FROM utilisateur WHERE id = '$id_search'";
+								$tab_search = mysqli_query($db_handle, $sql_search);
+								$row_search = mysqli_fetch_array($tab_search);
+								$nom_search = $row_search['nom'];
+
+								$prenom_search = $row_search['prenom'];
+								$chemin1_search = "profil/$id_search.jpg";
+								if (is_file($chemin1_search))
+								{?>
+									
+									<a href = "rechprofil.php"> <img src = profil/<?php echo $id_search;?> > </a>
+									<?php $_SESSION['id_search'] = $id_search;?>
+									
+								<?php } 
+								else
+								{?>							
+									<a href = "rechprofil.php"> <img src = "profil/0"></a>
+									<?php $_SESSION['id_search'] = $id_search;?>
+								<?php } ?>
+								<p> Nom : <?php echo $nom_search; ?> </p>
+								<?php if($row_search['entreprise']==1){}
+								else
+								{?><p> Prénom : <?php echo $prenom_search; ?> </p>
+							<?php }
+								?>
+						</table>
+					</p>
+				</fieldset>
+			</form>
 		<?php } ?>
 		
 	<div id="footer">

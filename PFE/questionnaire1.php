@@ -22,13 +22,23 @@ session_start();
 <nav>
 	<ul>
 		<a href="sommaire.php">Acceuil </a>
-		<a href="reseau.php">Reseau </a>
-		<a href="emploi.php">Emploi </a>
-		<a href="messagerie.php">Messagerie </a>
+	<!-- 	<a href="reseau.php">Reseau </a>
+	 -->	<a href="emploi.php">Emploi </a>
+	<!-- 	<a href="messagerie.php">Messagerie </a>
 		<a href="notification.php">Notification </a>
-		<a href="vous.php">Profil </a>
+	 -->	<a href="vous.php">Profil </a>
 	</ul>
 </nav>
+<div class="quest">
+	<h2> Comment bien répondre au questionnaire?</h2>
+	<p>- Le questionnaire comprend 36 énoncés. </p>
+	<p>- Il n’y a pas de limite de temps. Généralement, une quinzaine de minutes suffisent, mais prenez tout votre temps.</p>
+	<p>- Veuillez répondre à tous les énoncés et dans l’ordre.</p>
+	<p>- Vérifiez bien que vous avez fait le bon choix. Si vous souhaitez modifier votre choix, il suffit de sélectionner la bonne réponse et la mauvaise disparaîtra.</p>
+	<p>- Tâchez de ne pas utiliser le choix « neutre » trop souvent.</p>
+	<p>- Décrivez-vous tel(le) que vous êtes actuellement, et non pas comme vous souhaiteriez être à l’avenir.</p>
+	<p>- Décrivez-vous tel(le) que vous vous percevez réellement, par rapport à d’autres personnes du même sexe et plus ou moins du même âge. Votre première impression est généralement la plus juste</p>
+	</div>
 <body>
 
  	<tr>
@@ -41,7 +51,7 @@ session_start();
 			<p>
 				<table>
 					<tr>
-					Vous êtes plutôt dynamique que calme : <br> <br>
+					Vous préférez être dynamique plutôt que calme : <br> <br>
 						<input type="radio" name="q1" value="90" checked> Tout à fait d'accord<br>
 						<input type="radio" name="q1" value="70"> D'accord<br>
 						<input type="radio" name="q1" value="50"> neutre<br>
@@ -86,7 +96,7 @@ session_start();
 			<p>
 				<table>
 					<tr>
-					Vous agissez puis vous pensez : <br> <br>
+					Vous agissez de façon impulsive : <br> <br>
 						<input type="radio" name="q4" value="90" checked> Tout à fait d'accord<br>
 						<input type="radio" name="q4" value="70"> D'accord<br>
 						<input type="radio" name="q4" value="50"> neutre<br>

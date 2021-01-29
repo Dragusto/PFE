@@ -22,6 +22,12 @@ $birth = $row['date_de_naissance'];
 $city = $row['ville'];
 $adresse = $row['adresse'];
 
+$sql10 = "SELECT * FROM utilisateur WHERE id = '$id_search'";
+$tab1 = mysqli_query($db_handle, $sql10);
+$row1= mysqli_fetch_array($tab1);
+$entreprise = $row1['entreprise'];
+
+
 
 $sql = "SELECT admin FROM membre WHERE id = '$id'";
 $tab = mysqli_query($db_handle, $sql);
@@ -42,22 +48,23 @@ $admin = $row2['admin'];
     </head>
 	<header>
 		<div class="titre">
-   	    	 <p><img src= "image/intemento" width="500" height="150" alt="A 877x285 image"></p>    
- 	   </div>
+	        <p><img class="testimg2"src= "image/intemento" ></p>    
+	    </div>
 		<nav>
 			<ul>
 				<a href="sommaire.php">Accueil </a>
-				<a href="reseau.php">Reseau </a>
-				<a href="emploi.php">Emploi </a>
-				<a href="messagerie.php">Messagerie </a>
+				<!-- <a href="reseau.php">Reseau </a>
+				 --><a href="emploi.php">Emploi </a>
+				<!-- <a href="messagerie.php">Messagerie </a>
 				<a href="notification.php">Notification </a>
-				<a href="vous.php">Profil </a>
+				 --><a href="vous.php">Profil </a>
 				
 				
 			</ul>
 		</nav>
 
 	</header>
+	<?php if ($entreprise==1){}else{?>
 	<div class="pr">
 		<?php 
 		$chemin = 'CV/'.$id_search.'.pdf';
@@ -67,7 +74,7 @@ $admin = $row2['admin'];
 		<?php } ?>
 		<!-- <p><a href="rechercherelation.php">Relation(<?php echo $nb_relation ?>)</a> --></p>
 		<p><a href="photo.php">Photos</a></p>
-		
+		<?php }?>
 		
 	</div>
 	
@@ -76,20 +83,22 @@ $admin = $row2['admin'];
 
 			
 		<p> Nom : <?php echo $nom; ?> </p>
-		<p> Prénom : <?php echo $prenom; ?> </p>
+		<p><?php if ($entreprise==1){}else{echo 'Prénom : '.$prenom;}?></p>
 		<?php if(!$adresse){}else{echo 'Adresse : '.$adresse; } ?><p> </p>
 		<?php if(!$job){}else{ echo 'Statut : '.$job;} ?><p> </p>
 		<?php if(!$birth){}else{ echo 'Date de naissance : '.$birth;} ?><p> </p>
-		<?php
+		<?php 
+		if ($entreprise==1){}else{
 		$chemin1 = "test/$id_search.png";
 		if (is_file($chemin1))
 		{?>
 		<p><img src = test/<?php echo $id_search;?> width="200" height="200" alt="A 200x200 image"></p>
+		<a href="resultatrech.php">Résultat </a>
 		<?php } 
 		else
 		{?>
 		<p> Pas encore effectuer de test </p>
-		<?php } ?>
+		<?php }} ?>
 	</div>
 <?php
 		$chemin2 = "profil/$id_search.jpg";
@@ -101,7 +110,7 @@ $admin = $row2['admin'];
 		{?>
 			<p><img class="testimg"src= "profil/0"></p>
 		<?php } ?>
-	
+<!-- 	
 	<div class="ajouter">
 		<?php 
 		$sql1 = "SELECT id_1, id_2 FROM relation WHERE id_1 = '$id' and id_2 = '$id_search'";
@@ -127,11 +136,29 @@ $admin = $row2['admin'];
 			</form>
 		<?php 
 		} ?> 
-	</div>
+	</div> -->
 		
-	<body>
+		<body>
+	<section>
+	<div id="publi">
+		<?php
+			$sql = "SELECT * FROM membre WHERE id = '$id_search'";
+			$result = mysqli_query($db_handle, $sql);
+				while($data = mysqli_fetch_assoc($result))		
+			{		
+				?>
+				<form enctype="multipart/form-data">
+				<?php
+				echo $data['info'].'<br>';
+				}
+			?>
+		</div>
+	</section>
+	
+	</body>
+	<!-- <body>
 		
-		<!-- <section>
+		<section>
 		<div id="titre2">
 			<h2>Fil d'actualités du profil</h2>
 			<?php
@@ -162,11 +189,11 @@ $admin = $row2['admin'];
 				}
 			?>
 		</div>
-	</section> -->
+	</section> 
 	
 		
 		
-	</body>
+	</body> -->
 	<div id="footer">
 
 

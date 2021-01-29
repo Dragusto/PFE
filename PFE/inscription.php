@@ -47,20 +47,20 @@ session_start();
 
 			<tr>
 				<td>Mot de passe : </td>
-				<td><input type="password" name="mdp"</td>
+				<td><input type="password" name="mdp"></td>
 			</tr>
 
 			<tr>
 				<td> Confirmer mot de passe : </td>
-				<td><input type="password" name="mdp1"</td>
+				<td><input type="password" name="mdp1"></td>
 			</tr>
 
 			<tr>
-				<td colspan="2"><input type="Submit" value="Soumettre"/></td>
+				<td colspan="2"><input type="Submit" value="S'inscrire"/></td>
 			</tr>
-
+	
 		</table>
-
+		<p>En cliquant sur S’inscrire, vous acceptez nos <a href="CGU.php">Conditions générales</a>. Découvrez comment nous recueillons, utilisons et partageons vos données en lisant notre Politique d’utilisation des données et comment nous utilisons les cookies et autres technologies similaires en consultant notre Politique d’utilisation des cookies</p>
 	</form>
 
 	<div id="index">

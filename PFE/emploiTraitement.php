@@ -6,15 +6,23 @@ session_start();
 <html>
 
 <?php
+$id = $_SESSION['id'];
+$database = "piscine";
+$db_handle = mysqli_connect('localhost','root','');
+$db_found = mysqli_select_db($db_handle, $database);
+$sql = "SELECT * FROM utilisateur WHERE id = '$id'";
+$tab = mysqli_query($db_handle, $sql);
+$row= mysqli_fetch_array($tab);
+$nom = $row['nom'];
 
 	$travail = isset($_POST["travail"])? $_POST["travail"]:"";
 	$lieu = isset($_POST["lieu"])? $_POST["lieu"]:"";
 	$dateDebut = isset($_POST["dateDebut"])? $_POST["dateDebut"]:"";
 	$contrat = isset($_POST["contrat"])? $_POST["contrat"]:"";
 	$description = isset($_POST["description"])? $_POST["description"]:"";
-	
-	$datePubli = date("Y-m-d H:i:s");
-	$auteur = $_SESSION['auteur_publi'];
+	$profil = isset($_POST["profil"])? $_POST["profil"]:"";
+	$contact = isset($_POST["contact"])? $_POST["contact"]:"";
+	$datePubli = date("Y-m-d");
 
 	$error = "";
 
@@ -37,24 +45,77 @@ session_start();
 	if($description == ""){
 		$error .= "Description est vide";
 	}
+	if($contact == ""){
+		$error .= "Description est vide";
+	}
 
-
+switch ($profil) {
+	case "profil":
+        $profil = '';
+        break;
+    case "profil1":
+        $profil = 'Infirmier';
+        break;
+    case "profil2":
+        $profil = 'Exécutant';
+        break;
+    case "profil3":
+        $profil = 'Gardien';
+        break;
+    case "profil4":
+        $profil = 'Aide à domicile';
+        break;
+    case "profil5":
+        $profil = 'Mécanicien';
+        break;
+	case "profil6":
+        $profil = 'Homme d action';
+        break;
+    case "profil7":
+        $profil = 'Acteur';
+        break;
+    case "profil8":
+        $profil = 'Artiste';
+        break;
+    case "profil9":
+        $profil = 'Directeur';
+        break;
+    case "profil10":
+        $profil = 'Scientifique';
+        break;
+	case "profil11":
+        $profil = 'Visionnaire';
+        break;
+    case "profil12":
+        $profil = 'Penseur';
+        break;
+    case "profil13":
+        $profil = 'Donateur';
+        break;
+    case "profil14":
+        $profil = 'Protecteur';
+        break;
+    case "profil15":
+        $profil = 'Charismatique';
+	case "profil16":
+        $profil = 'Idéaliste';
+        break;
+		}
 	if($error == "")
 	{
 		echo "Formulaire valide <br/><br/>";
-		$database = "piscine";
-		$db_handle = mysqli_connect('localhost','root','root');
-		$db_found = mysqli_select_db($db_handle, $database);
+
 		
 
 		if($db_found)
 		{
 				// Insertion
-				$sql = "INSERT INTO emploi(travail, lieu, dateDebut, contrat, description, auteur, datePubli) VALUES('$travail', '$lieu', '$dateDebut','$contrat','$description', '$auteur', '$datePubli')";
+				$sql = "INSERT INTO `emploi`(`id`, `nom`, `travail`, `lieu`, `dateDebut`, `contrat`, `datePubli`, `description`, `profil`, `contact`) VALUES('$id', '$nom', '$travail', '$lieu', '$dateDebut','$contrat','$datePubli','$description', '$profil', '$contact')";
 			
 				if(mysqli_query($db_handle, $sql))
 				{
 					echo "Votre publication a bien été créée <br>";
+					?><meta http-equiv="refresh" content="1;emploi.php"/><?php
 				}
 			
 				else
@@ -102,13 +163,7 @@ session_start();
 
 	<div id="footer">
 
-        <p>Droit d'auteur Giot Chabennet © 2018 Intemento</p> 
 
-        <p> Dernière mise à jour le 2/05/2018 |
-
-        <a href="mailto:Intemento@gmail.com">Intemento@gmail.com</a> 
-        
-        </p>
 
 	</div>
 

@@ -22,11 +22,11 @@ session_start();
 <nav>
 	<ul>
 		<a href="sommaire.php">Acceuil </a>
-		<a href="reseau.php">Reseau </a>
-		<a href="emploi.php">Emploi </a>
-		<a href="messagerie.php">Messagerie </a>
+	<!-- 	<a href="reseau.php">Reseau </a>
+	 -->	<a href="emploi.php">Emploi </a>
+	<!-- 	<a href="messagerie.php">Messagerie </a>
 		<a href="notification.php">Notification </a>
-		<a href="vous.php">Profil </a>
+	 -->	<a href="vous.php">Profil </a>
 	</ul>
 </nav>
 <body>
@@ -161,7 +161,7 @@ session_start();
 			<p>
 				<table>
 					<tr>
-					Vous êtes imaginatifs : vous voyez les possibilités : <br> <br>
+					Vous êtes imaginatifs : vous faites des liens entre des concepts que personnes d’autre ne fait : <br> <br>
 						<input type="radio" name="q9" value="10"> Tout à fait d'accord<br>
 						<input type="radio" name="q9" value="30"> D'accord<br>
 						<input type="radio" name="q9" value="50"> neutre<br>
